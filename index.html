@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym Analytics</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-blue-600 text-white py-4">
+    <div class="container mx-auto text-center">
+      <h1 class="text-2xl font-bold">Gym Analytics Software</h1>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto py-8">
+    <!-- Workout Tracker Section -->
+    <section class="bg-white shadow-md rounded p-6 mb-8">
+      <h2 class="text-xl font-semibold mb-4">Log Your Workout</h2>
+      <form id="workout-form" class="space-y-4">
+        <div>
+          <label for="exercise" class="block font-medium">Exercise</label>
+          <input type="text" id="exercise" name="exercise" class="input w-full border-gray-300 rounded py-2 px-3" placeholder="e.g., Bench Press" required>
+        </div>
+        <div class="flex space-x-4">
+          <div>
+            <label for="sets" class="block font-medium">Sets</label>
+            <input type="number" id="sets" name="sets" class="input w-full border-gray-300 rounded py-2 px-3" placeholder="e.g., 3" required>
+          </div>
+          <div>
+            <label for="reps" class="block font-medium">Reps</label>
+            <input type="number" id="reps" name="reps" class="input w-full border-gray-300 rounded py-2 px-3" placeholder="e.g., 12" required>
+          </div>
+          <div>
+            <label for="weight" class="block font-medium">Weight (kg)</label>
+            <input type="number" id="weight" name="weight" class="input w-full border-gray-300 rounded py-2 px-3" placeholder="e.g., 50" required>
+          </div>
+        </div>
+        <button type="submit" class="bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">Submit</button>
+      </form>
+    </section>
+
+    <!-- Analytics Dashboard Section -->
+    <section class="bg-white shadow-md rounded p-6">
+      <h2 class="text-xl font-semibold mb-4">Analytics Dashboard</h2>
+      <canvas id="workout-chart" class="w-full h-64"></canvas>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-4 text-center">
+    <p>© 2024 Gym Analytics Software. All rights reserved.</p>
+  </footer>
+
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    // Handle Form Submission
+    document.getElementById('workout-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Gather form data
+      const exercise = document.getElementById('exercise').value;
+      const sets = document.getElementById('sets').value;
+      const reps = document.getElementById('reps').value;
+      const weight = document.getElementById('weight').value;
+
+      console.log('Workout Logged:', { exercise, sets, reps, weight });
+
+      // Update Chart (Placeholder Data for Now)
+      addDataToChart(exercise, reps * sets * weight);
+      this.reset(); // Clear form
+    });
+
+    // Chart.js Setup
+    const ctx = document.getElementById('workout-chart').getContext('2d');
+    const workoutChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: [], // Exercise names
+        datasets: [{
+          label: 'Total Weight Lifted (kg)',
+          data: [],
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1,
+        }],
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+
+    // Add Data to Chart
+    function addDataToChart(label, data) {
+      workoutChart.data.labels.push(label);
+      workoutChart.data.datasets[0].data.push(data);
+      workoutChart.update();
+    }
+  </script>
+
+</body>
+</html>

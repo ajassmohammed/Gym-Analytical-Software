@@ -1,0 +1,158 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8fafc; 
+  color: #1e293b;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: #3b82f6; 
+  font-weight: bold;
+}
+
+header p {
+  font-size: 1rem;
+  color: #64748b; 
+}
+
+
+form {
+  margin-bottom: 30px;
+}
+
+form .form-group {
+  margin-bottom: 15px;
+}
+
+form label {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #475569;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+  outline: none;
+}
+
+form button {
+  background-color: #3b82f6;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+form button:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+
+section {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  font-size: 1.8rem;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+
+button.clear-chart {
+  display: block;
+  background-color: #ef4444;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px auto;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button.clear-chart:hover {
+  background-color: #dc2626;
+  transform: scale(1.05);
+}
+
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background: #1e293b;
+  color: white;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  form button {
+    font-size: 1rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+}
